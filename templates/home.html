@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Watched Movies Home</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/home.css') }}">
+
+</head>
+<body>
+<center>
+    <h1 >Welcome MOVIES BUFF</h1>
+    <div class="link">
+    <a href="{{url_for('add')}}" class="add" style="font-size:25px;">Add Watched Movie Details</a><br>
+    <a href="{{url_for('view')}}" class="view" style="font-size:25px;">View Watched Movie Details</a><br>
+    <a href="{{url_for('delete')}}" class="delete" style="font-size:25px;">Delete Watched Movie Details</a><br>
+    <a href="{{url_for('search')}}" class="search" style="font-size:25px;">Search Watched Movie Details</a><br>
+    </div>
+</center>
+</body>
+</html>

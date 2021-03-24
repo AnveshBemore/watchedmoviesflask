@@ -1,0 +1,27 @@
+h1{
+color: #c58c85;
+}
+div.link{
+
+line-height:250%;
+}
+a:link {
+  color:#EDBA9D;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: #E6BE8A;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: #C68733;
+  background-color: transparent;
+
+}
+a:active {
+  color: #C68733;
+  background-color: transparent;
+
+}

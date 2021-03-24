@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies Watched  Details</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/add.css')}}">
+</head>
+<body>
+<form action="/save" method="POST">
+    <center>
+        <div >
+        <br><br>
+        Enter Movies Details&nbsp;
+        <input name="name" type="text"><br>
+        Enter Genre &nbsp;
+        <input name="genre" type="text"><br>
+        Enter Worth Watching &nbsp;
+        <input name="ww" type="text"><br>
+        Enter Special Details &nbsp;
+        <input name="sd" type="text"><br>
+        Enter Free Link &nbsp;
+        <input name="fl" type="text"><br>
+        <input type="submit">
+        </div>
+
+    </center>
+</form>
+</body>
+</html>

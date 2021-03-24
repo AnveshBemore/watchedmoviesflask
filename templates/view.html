@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies Watched</title>
+</head>
+<body>
+ <table style="width:100%">
+        <tr>
+            <th>Sno</th>
+            <th>Movie Name</th>
+            <th>Genre</th>
+            <th>Worth Watching</th>
+            <th>Special Details</th>
+            <th>Free Link</th>
+        </tr>
+            {% for d in data %}
+        <tr>
+            <td>{{d[0]}}</td>
+            <td>{{d[1]}}</td>
+            <td>{{d[2]}}</td>
+            <td>{{d[3]}}</td>
+            <td>{{d[4]}}</td>
+
+            {% if d[5] != None %}
+            <td> <a href="{{d[5]}}">{{d[1]}}</a></td>
+            {% else %}
+            <td> {{d[5]}}</td>
+            {% endif %}
+        </tr>
+            {% endfor %}
+    </table>
+<a href="{{url_for('index')}}">Home</a>
+</body>
+</html>
