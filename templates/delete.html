@@ -2,16 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Movies Watched Delete </title>
+    <title>Movies Watched Delete</title>
+    <style>
+        /* Body styling */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        /* Form container styling */
+        .form-container {
+            text-align: center;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Input field styling */
+        .form-container input[type="text"] {
+            width: 80%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        /* Submit button styling */
+        .form-container input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #ffffff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-<form method="post" action="/deletemovie">
-    <center>
-    Enter the Movies to delete:
-    <input type="text" name="delmovie">
-    <input type="submit">
-    </center>
-</form>
-
+    <form method="post" action="/deletemovie" class="form-container">
+        <h2>Delete a Movie</h2>
+        <label for="delmovie">Enter the Movie to Delete:</label>
+        <input type="text" name="delmovie" id="delmovie" required>
+        <input type="submit" value="Delete">
+    </form>
 </body>
 </html>

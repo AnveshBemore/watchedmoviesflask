@@ -3,9 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <title>Movies Watched</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body styling */
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Table styling */
+        table {
+            width: 100%;
+            max-width: 800px;
+            background-color: #ffffff;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Button styling */
+        .home-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-link:hover {
+            background-color: #45a049;
+        }
+        .home-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+        }
+
+    </style>
 </head>
 <body>
- <table style="width:100%">
+    <table>
         <tr>
             <th>Sno</th>
             <th>Movie Name</th>
@@ -14,22 +104,17 @@
             <th>Special Details</th>
             <th>Free Link</th>
         </tr>
-            {% for d in data %}
+        {% for d in data %}
         <tr>
-            <td>{{d[0]}}</td>
-            <td>{{d[1]}}</td>
-            <td>{{d[2]}}</td>
-            <td>{{d[3]}}</td>
-            <td>{{d[4]}}</td>
-
-            {% if d[5] != None %}
-            <td> <a href="{{d[5]}}">{{d[1]}}</a></td>
-            {% else %}
-            <td> {{d[5]}}</td>
-            {% endif %}
+            <td>{{loop.index}}</td>
+            <td>{{ d[0] }}</td>
+            <td>{{ d[1] }}</td>
+            <td>{{ d[2] }}</td>
+            <td>{{ d[3] }}</td>
+            <td>{{ d[4] }}</td>
         </tr>
-            {% endfor %}
+        {% endfor %}
     </table>
-<a href="{{url_for('index')}}">Home</a>
+    <a href="{{ url_for('index') }}" class="home-link">Home</a>
 </body>
 </html>

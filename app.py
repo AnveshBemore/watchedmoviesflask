@@ -4,7 +4,8 @@ app=Flask(__name__)
 
 mydb=mysql.connector.connect(
     host="localhost",
-    user="AnveshBemore",
+    # user="AnveshBemore",
+    user="root",
     password="Anvesh@123",
     database="movies"
 )

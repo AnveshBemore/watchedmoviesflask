@@ -3,10 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Movies Watched Add</title>
+    <style>
+        /* Body styling */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        /* Message styling */
+        .message {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Heading styling */
+        .message h2 {
+            margin: 0;
+            color: #4CAF50;
+        }
+
+        /* Home link styling */
+        .home-link {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-link:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-{{msg}}<br>
-<a href="{{url_for('index')}}">Home</a>
-
+    <div class="message">
+        <h2>Message</h2>
+        <p>{{ msg }}</p>
+    </div>
+    <a href="{{ url_for('index') }}" class="home-link">Home</a>
 </body>
 </html>

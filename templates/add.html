@@ -2,28 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Movies Watched  Details</title>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/add.css')}}">
+    <title>Movies Watched Details</title>
+    <style>
+        /* Body styling */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        /* Form container styling */
+        .form-container {
+            text-align: center;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Form field styling */
+        .form-container input[type="text"] {
+            width: 80%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        /* Submit button styling */
+        .form-container input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #ffffff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Label styling */
+        .form-container label {
+            font-size: 1em;
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
-<form action="/save" method="POST">
-    <center>
-        <div >
-        <br><br>
-        Enter Movies Details&nbsp;
-        <input name="name" type="text"><br>
-        Enter Genre &nbsp;
-        <input name="genre" type="text"><br>
-        Enter Worth Watching &nbsp;
-        <input name="ww" type="text"><br>
-        Enter Special Details &nbsp;
-        <input name="sd" type="text"><br>
-        Enter Free Link &nbsp;
-        <input name="fl" type="text"><br>
-        <input type="submit">
-        </div>
+    <form action="/save" method="POST">
+        <div class="form-container">
+            <h2>Enter Movie Details</h2>
+            <label for="name">Enter Movie Name</label>
+            <input name="name" type="text" id="name"><br>
 
-    </center>
-</form>
+            <label for="genre">Enter Genre</label>
+            <input name="genre" type="text" id="genre"><br>
+
+            <label for="ww">Worth Watching</label>
+            <input name="ww" type="text" id="ww"><br>
+
+            <label for="sd">Special Details</label>
+            <input name="sd" type="text" id="sd"><br>
+
+            <label for="fl">Free Link</label>
+            <input name="fl" type="text" id="fl"><br>
+
+            <input type="submit" value="Submit">
+        </div>
+    </form>
 </body>
 </html>

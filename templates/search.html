@@ -3,15 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <title>Watched Movies Search</title>
+    <style>
+        /* Body styling */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        /* Form container styling */
+        .form-container {
+            text-align: center;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Input field styling */
+        .form-container input[type="text"] {
+            width: 80%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        /* Submit button styling */
+        .form-container input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #ffffff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Home link styling */
+        .home-link {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-link:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-<form action="/searchvalue" method="post" >
-    <center>
-        Enter Movie Name: <input type="text" name="search"><br>
-        <input type="submit">
-        <a href="{{url_for('index')}}">Home</a>
-    </center>
-</form>
-
+    <form action="/searchvalue" method="post" class="form-container">
+        <h2>Search for a Movie</h2>
+        <label for="search">Enter Movie Name:</label>
+        <input type="text" name="search" id="search" required><br>
+        <input type="submit" value="Search">
+        <br>
+        <a href="{{ url_for('index') }}" class="home-link">Home</a>
+    </form>
 </body>
 </html>
