@@ -1,6 +1,6 @@
 [build]
-  command = "pip install -r requirements.txt"
-  publish = "."
+  command = "pip install -r requirements.txt && python netlify/functions/server.py"
+  publish = "netlify/functions"
   functions = "netlify/functions"
 
 [[redirects]]

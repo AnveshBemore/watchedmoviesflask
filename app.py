@@ -12,7 +12,7 @@ mydb=mysql.connector.connect(
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("home.html")
 @app.route("/add")
 def add():
 
