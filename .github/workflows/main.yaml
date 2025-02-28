@@ -3,38 +3,16 @@ name: Deploy Flask App
 on:
   push:
     branches:
-      - master  # Trigger on push to the main branch (adjust if you're using a different branch)
+      - master  # Trigger on push to the master branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the code from the repository
-      - name: Checkout code
-        uses: actions/checkout@v2
+    # Step 1: Use Firebase Credentials stored in GitHub Secrets
+    - name: Set up Firebase credentials as environment variable
+      run: echo "GOOGLE_APPLICATION_CREDENTIALS=${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" >> $GITHUB_ENV
 
-      # Step 2: Set up Python environment
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      # Step 3: Install dependencies
-      - name: Install dependencies
-        run: |
-          python3 -m pip install --upgrade pip
-          pip3 install -r requirements.txt
-
-      # Step 4: Set GOOGLE_APPLICATION_CREDENTIALS environment variable
-      - name: Set up Firebase credentials
-        run: |
-          echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > firebase_credentials.json
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-
-      # Step 5: Run Flask app or deploy (adjust the following command as needed)
-      - name: Run Flask app
-        run: |
-          flask run  # Or use another command to start your Flask app
-
+    # Step 2: Deploy your application here (for example, using Firebase CLI or other deployment methods)
+    # You can add specific deployment actions here as per your needs.
