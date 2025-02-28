@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request
 import firebase_admin
+import os
 from firebase_admin import credentials, firestore
 
 # Initialize Firebase app with credentials
-cred = credentials.Certificate('GOOGLE_APPLICATION_CREDENTIALS')
+cred = credentials.Certificate(os.getenv('GOOGLE_APPLICATION_CREDENTIALS'))
 firebase_admin.initialize_app(cred)
 
 # Initialize Firestore DB
