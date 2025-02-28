@@ -27,7 +27,7 @@
         table {
             width: 100%;
             max-width: 800px;
-            background-color: #ffffff;
+            background-color: red;
             border-collapse: collapse;
             margin: 20px 0;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -40,7 +40,7 @@
 
         th {
             background-color: #4CAF50;
-            color: white;
+            color: red;
             font-weight: 600;
         }
 
@@ -61,7 +61,6 @@
         a:hover {
             text-decoration: underline;
         }
-
         /* Button styling */
         .home-link {
             display: inline-block;
@@ -104,17 +103,18 @@
             <th>Special Details</th>
             <th>Free Link</th>
         </tr>
-        {% for d in data %}
-        <tr>
-            <td>{{loop.index}}</td>
-            <td>{{ d[0] }}</td>
-            <td>{{ d[1] }}</td>
-            <td>{{ d[2] }}</td>
-            <td>{{ d[3] }}</td>
-            <td>{{ d[4] }}</td>
+        {% for movie in data %}
+        <tr >
+            <td>{{ loop.index }}</td>
+            <td>{{ movie['Movie'] }}</td>
+            <td>{{ movie['Genre'] }}</td>
+            <td>{{ movie['Worth_Watching'] }}</td>
+            <td>{{ movie['Special_Details'] }}</td>
+            <td><a href="{{ movie['free_link'] }}">link</a></td>
         </tr>
         {% endfor %}
     </table>
     <a href="{{ url_for('index') }}" class="home-link">Home</a>
+
 </body>
 </html>
