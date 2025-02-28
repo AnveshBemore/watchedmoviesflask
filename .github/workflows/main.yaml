@@ -3,21 +3,21 @@ name: Firebase Credentials Setup
 on:
   push:
     branches:
-      - main  # or master, based on your branch name
+      - main  # or 'master', depending on your default branch name
   pull_request:
     branches:
-      - main  # or master, based on your branch name
+      - main  # or 'master', depending on your default branch name
 
 jobs:
   setup_firebase_credentials:
     runs-on: ubuntu-latest
 
     steps:
-      # Step: Check out the repository
+      # Step 1: Check out the repository
       - name: Check out repository
         uses: actions/checkout@v2
 
-      # Step: Set up Firebase credentials using the secret stored in GitHub
+      # Step 2: Set up Firebase credentials from GitHub secrets
       - name: Set up Firebase credentials
         run: |
           echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > ./firebase-credentials.json
