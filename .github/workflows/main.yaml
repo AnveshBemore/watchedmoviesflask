@@ -1,18 +1,10 @@
-name: Deploy Flask App
-
-on:
-  push:
-    branches:
-      - master  # Trigger on push to the master branch
-
 jobs:
-  deploy:
+  setup_firebase_credentials:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Use Firebase Credentials stored in GitHub Secrets
-    - name: Set up Firebase credentials as environment variable
-      run: echo "GOOGLE_APPLICATION_CREDENTIALS=${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" >> $GITHUB_ENV
-
-    # Step 2: Deploy your application here (for example, using Firebase CLI or other deployment methods)
-    # You can add specific deployment actions here as per your needs.
+      # Step: Set up Firebase credentials using the secret stored in GitHub
+      - name: Set up Firebase credentials
+        run: |
+          echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > ./firebase-credentials.json
+          export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/firebase-credentials.json
