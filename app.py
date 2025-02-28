@@ -49,7 +49,8 @@ def save():
 
 @app.route("/view")
 def view():
-    print("entered view ")
+    app.logger.info(f"Firebase key: {cred}")
+
     # Retrieve all movies from Firestore
     movies_ref = db.collection(MOVIES_COLLECTION)
     movies = movies_ref.stream()
